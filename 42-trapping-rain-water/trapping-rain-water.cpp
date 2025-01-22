@@ -2,9 +2,8 @@ class Solution {
 public:
     int trap(vector<int>& height) {
         int n= height.size();
-        if (n == 0) return 0;
 
-        vector<int> mxl(n,0),mxr(n,0);
+        vector<int> mxl(n),mxr(n);
 
         mxl[0]= height[0];
         for(int i=1; i<n; i++){
