@@ -2,13 +2,14 @@ class Solution {
 public:
     int numberOfSubstrings(string s) {
        
-        int count=0;
-        int lastseen[]={-1,-1,-1};
+        int count=0,a=-1,b=-1,c=-1;
         for(int i=0;i<s.size();i++){
-            lastseen[s[i]-'a']=i;
-            if(lastseen[0]!=-1 && lastseen[1]!=-1 && lastseen[2]!=-1){
-                int mini=min(lastseen[0],min(lastseen[1],lastseen[2]));
-                count+=mini+1;
+            if(s[i]=='a') a=i;
+            else if(s[i]=='b') b=i;
+            else c=i;
+
+            if(a!=-1&&b!=-1&&c!=-1){
+                count+=min(min(a,b),c)+1;
             }
         }
         return count;
